@@ -8,10 +8,24 @@
 <body>
 
   <div class="display">
-    <h1>Ab</h1>
+    <h1 class="display_degree">Ab</h1>
   </div>
 
 <script>
+  var showDegree = document.querySelector('.display_degree');
+  var degrees = ['I','ii','iii','IV','V','vi','vii°'];
+
+  // set variable from values randomly every ___ seconds
+  function displayDegree() {
+    var degree = degrees[Math.floor(Math.random() * degrees.length)];
+    showDegree.textContent = degree;
+    console.log(degree);
+  }
+
+  // displayDegree();
+  setInterval(function(){
+    displayDegree();
+  }, 2000);
 </script>
 
 </body>
