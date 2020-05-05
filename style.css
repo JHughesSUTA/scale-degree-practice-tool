@@ -55,17 +55,20 @@ html {
 }
 
 .widget {
-  background-color: red; 
+  display: grid;
+  background-color: rgb(255,255,255,0.7);
   height: 750px;
   width: 90%;
   border: 5px solid black;
   border-radius: 50%;
   justify-self: center;
   align-self: center;
+  align-content: center;
+  box-shadow: 3px 3px 8px;
 }
 
 .option-btn {
-  background: none;
+  background-color: green;
   border: 4px solid black;
   color: black;
   /*background: rgba(0, 0, 0, 0.7);*/
@@ -74,10 +77,11 @@ html {
   height: 100%;
   font-size: 1em;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .start-btn {
-  background: none;
+  background-color: red;
   border: 4px solid black;
   color: black;
   /*background: rgba(0, 0, 0, 0.7);*/
@@ -86,6 +90,11 @@ html {
   height: 100%;
   font-size: 1em;
   padding: 10px;
+  border-radius: 10px;
+}
+
+.display-text {
+  margin: 10px;
 }
 
 /*.tempo {
