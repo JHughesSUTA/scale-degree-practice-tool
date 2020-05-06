@@ -78,10 +78,12 @@ html {
   font-size: 1em;
   padding: 10px;
   border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 8px;
 }
 
 .start-btn {
-  background-color: red;
+  background-color: green;
   border: 4px solid black;
   color: black;
   /*background: rgba(0, 0, 0, 0.7);*/
@@ -91,10 +93,20 @@ html {
   font-size: 1em;
   padding: 10px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .display-text {
   margin: 10px;
+}
+
+.btn-off {
+  background-color: red;
+}
+
+button:active {
+  width: 95%;
+  height: 95%;
 }
 
 /*.tempo {
