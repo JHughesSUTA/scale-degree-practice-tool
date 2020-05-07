@@ -10,7 +10,7 @@
     <div class="header">
       <div class="item tempo">tempo</div>
       <div class="start">
-        <button class="start-btn btn-off" onclick="updateButton();toggleButton(this)">START</button>
+        <button class="start-btn btn-off" onclick="updateButton();toggleButton(this);toggleStart()">START</button>
       </div>
     </div>
     <div class="content">
@@ -64,11 +64,11 @@
       </div>
       <div class="widget">
         <h2 class="display-text">C</h2>
-        <h1 class="display-text">I</h1>
+        <h1 class="display-degree">I</h1>
       </div>
       <div class="chords">
         <div class=" chord i">
-          <button class="option-btn" onclick="toggleButton(this)">I</button>
+          <button class="option-btn" onclick="toggleButton(this);toggleStop()">I</button>
         </div>
         <div class=" chord ii">
           <button class="option-btn" onclick="toggleButton(this)">ii</button>
@@ -86,7 +86,7 @@
           <button class="option-btn" onclick="toggleButton(this)">vi</button>
         </div>
         <div class=" chord vii">
-          <button class="option-btn" onclick="toggleButton(this)">vii</button>
+          <button class="option-btn" onclick="toggleButton(this)">vii°</button>
         </div>
       </div>
     </div>
@@ -100,14 +100,27 @@
 
 
 <script>
+  var t;
+  var running = false; 
 
   function toggleButton(button) {
     button.classList.toggle("btn-off");
   }
 
-  function updateButton() {
-    console.log(event.target.innerHTML);
 
+  function toggleStart() {
+    if (running == false) {
+      t = setInterval(displayDegree, 2000);
+      t;
+      running = true;
+    } else {
+      clearInterval(t);
+      running = false;
+    }
+  } 
+
+
+  function updateButton() {
     if (event.target.innerHTML == "START") {
       event.target.innerHTML = "STOP";
     } else {
@@ -117,20 +130,22 @@
     // toggle.textContent = icon;
   }
 
-  // var showDegree = document.querySelector('.display_degree');
-  // var degrees = ['I','ii','iii','IV','V','vi','vii°'];
+  var showDegree = document.querySelector('.display-degree');
+  var degrees = ['I','ii','iii','IV','V','vi','vii°'];
 
-  // // set variable from values randomly every ___ seconds
-  // function displayDegree() {
-  //   var degree = degrees[Math.floor(Math.random() * degrees.length)];
-  //   showDegree.textContent = degree;
-  //   // console.log(degree);
-  // }
+  // set variable from values randomly every ___ seconds
+  function displayDegree() {
+    var degree = degrees[Math.floor(Math.random() * degrees.length)];
+    console.log(degree);
+    showDegree.textContent = degree;
+  }
 
-  // // displayDegree();
+  // set interval (tempo) for the changing of the display
   // setInterval(function(){
   //   displayDegree();
   // }, 2000);
+
+
 </script>
 
 </body>
