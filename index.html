@@ -63,7 +63,7 @@
         <div class=" key "></div>
       </div>
       <div class="widget">
-        <h2 class="display-text">C</h2>
+        <h2 class="display-key">C</h2>
         <h1 class="display-degree">I</h1>
       </div>
       <div class="chords">
@@ -110,7 +110,7 @@
 
   function toggleStart() {
     if (running == false) {
-      t = setInterval(displayDegree, 2000);
+      t = setInterval(updateWidget, 2000);
       t;
       running = true;
     } else {
@@ -131,18 +131,22 @@
   }
 
   var showDegree = document.querySelector('.display-degree');
+  var showKey = document.querySelector('.display-key');
   var degrees = ['I','ii','iii','IV','V','vi','vii°'];
+  var keys = ['C','G','D','A','E','B','F#','C#','F','Bb','Eb','Ab','Db','Gb','Cb'];
 
   // set variable from values randomly every ___ seconds
-  function displayDegree() {
+  function updateWidget() {
     var degree = degrees[Math.floor(Math.random() * degrees.length)];
-    console.log(degree);
     showDegree.textContent = degree;
+    var key = keys[Math.floor(Math.random() * keys.length)];
+    showKey.textContent = key;
   }
+
 
   // set interval (tempo) for the changing of the display
   // setInterval(function(){
-  //   displayDegree();
+  //   updateWidget();
   // }, 2000);
 
 
