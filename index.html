@@ -16,49 +16,49 @@
     <div class="content">
       <div class="keys">
         <div class=" key C">
-          <button class="option-btn" onclick="toggleButton(this)">C</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveKey()">C</button>
         </div>
         <div class=" key F">
-          <button class="option-btn" onclick="toggleButton(this)">F</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveKey()">F</button>
         </div>
         <div class=" key G">
-          <button class="option-btn" onclick="toggleButton(this)">G</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveKey()">G</button>
         </div>
         <div class=" key Bb">
-          <button class="option-btn" onclick="toggleButton(this)">Bb</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveKey()">Bb</button>
         </div>
         <div class=" key D">
-          <button class="option-btn" onclick="toggleButton(this)">D</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveKey()">D</button>
         </div>
         <div class=" key Eb">
-          <button class="option-btn" onclick="toggleButton(this)">Eb</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">Eb</button>
         </div>
         <div class=" key A">
-          <button class="option-btn" onclick="toggleButton(this)">A</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">A</button>
         </div>
         <div class=" key Ab">
-          <button class="option-btn" onclick="toggleButton(this)">Ab</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">Ab</button>
         </div>
         <div class=" key E">
-          <button class="option-btn" onclick="toggleButton(this)">E</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">E</button>
         </div>
         <div class=" key Db">
-          <button class="option-btn" onclick="toggleButton(this)">Db</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">Db</button>
         </div>
         <div class=" key B">
-          <button class="option-btn" onclick="toggleButton(this)">B</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">B</button>
         </div>
         <div class=" key Gb">
-          <button class="option-btn" onclick="toggleButton(this)">Gb</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">Gb</button>
         </div>
         <div class=" key F#">
-          <button class="option-btn" onclick="toggleButton(this)">F#</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">F#</button>
         </div>
         <div class=" key Cb">
-          <button class="option-btn" onclick="toggleButton(this)">Cb</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">Cb</button>
         </div>
         <div class=" key C#">
-          <button class="option-btn" onclick="toggleButton(this)">C#</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">C#</button>
         </div>
         <div class=" key "></div>
       </div>
@@ -67,26 +67,26 @@
         <h1 class="display-degree">I</h1>
       </div>
       <div class="chords">
-        <div class=" chord i">
-          <button class="option-btn" onclick="toggleButton(this);toggleStop()">I</button>
+        <div class="chord i">
+          <button class="option-btn" onclick="toggleButton(this);addRemoveDegree()">I</button>
         </div>
         <div class=" chord ii">
-          <button class="option-btn" onclick="toggleButton(this)">ii</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveDegree()">ii</button>
         </div>
         <div class=" chord iii">
-          <button class="option-btn" onclick="toggleButton(this)">iii</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveDegree()">iii</button>
         </div>
         <div class=" chord iv">
-          <button class="option-btn" onclick="toggleButton(this)">IV</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveDegree()">IV</button>
         </div>
         <div class=" chord v">
-          <button class="option-btn" onclick="toggleButton(this)">V</button>
+          <button class="option-btn" onclick="toggleButton(this);addRemoveDegree()">V</button>
         </div>
         <div class=" chord vi">
-          <button class="option-btn" onclick="toggleButton(this)">vi</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveDegree()">vi</button>
         </div>
         <div class=" chord vii">
-          <button class="option-btn" onclick="toggleButton(this)">vii°</button>
+          <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveDegree()">vii°</button>
         </div>
       </div>
     </div>
@@ -102,9 +102,40 @@
 <script>
   var t;
   var running = false; 
+  var showDegree = document.querySelector('.display-degree');
+  var showKey = document.querySelector('.display-key');
+  var degrees = ['I','IV','V'];
+  var keys = ['C','G','D','F','Bb'];
 
   function toggleButton(button) {
     button.classList.toggle("btn-off");
+    var target = event.target.innerHTML;
+  }
+
+  function addRemoveDegree() {
+    var target = event.target.innerHTML;
+    if (degrees.includes(target)) {
+      for (var i = 0; i < degrees.length; i++) {
+        if (degrees[i] === target) {
+          degrees.splice(i,1);
+        }
+      }
+    } else {
+      degrees.push(target);
+    }
+  }
+
+  function addRemoveKey() {
+    var target = event.target.innerHTML;
+    if (keys.includes(target)) {
+      for (var i = 0; i < keys.length; i++) {
+        if (keys[i] === target) {
+          keys.splice(i,1);
+        }
+      }
+    } else {
+      keys.push(target);
+    }
   }
 
 
@@ -130,10 +161,6 @@
     // toggle.textContent = icon;
   }
 
-  var showDegree = document.querySelector('.display-degree');
-  var showKey = document.querySelector('.display-key');
-  var degrees = ['I','ii','iii','IV','V','vi','vii°'];
-  var keys = ['C','G','D','A','E','B','F#','C#','F','Bb','Eb','Ab','Db','Gb','Cb'];
 
   // set variable from values randomly every ___ seconds
   function updateWidget() {
