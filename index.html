@@ -10,7 +10,7 @@
     <div class="header">
       <div class="item tempo">
         <label for='tempo'>Tempo:</label>
-        <input name='tempo' type='range' min='50' max='120' value='60' step='10'>
+        <input name='tempo' type='range' min='30' max='102' value='60' step='8'>
         <p id='tempo-value'>60</p>
       </div>
       <div class="start">
@@ -113,6 +113,7 @@
   var keys = ['C','G','D','F','Bb'];
   var tempo = document.querySelector('[name="tempo"]');
   tempo.addEventListener('change', tempoChange);
+  var tempoMs = 1000;
 
   function toggleButton(button) {
     button.classList.toggle("btn-off");
@@ -148,7 +149,7 @@
 
   function toggleStart() {
     if (running == false) {
-      t = setInterval(updateWidget, 2000);
+      t = setInterval(updateWidget, tempoMs);
       t;
       running = true;
     } else {
@@ -175,10 +176,17 @@
     showDegree.textContent = degree;
     var key = keys[Math.floor(Math.random() * keys.length)];
     showKey.textContent = key;
+    console.log(key);
   }
 
   function tempoChange() {
     showTempo.textContent = tempo.value;
+    tempoMs = (60000 / tempo.value);
+    if (running == true) {
+      clearInterval(t);
+      t = setInterval(updateWidget, tempoMs);
+      t;
+    } 
   }
 
 
