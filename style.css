@@ -1,7 +1,15 @@
+/*:root {
+  --yellow: #ffc600;
+  --black: #272727;
+  --red: #E76F51;
+  --green: #2A9D8F;
+}*/
+
+
 html {
-      background: rgb(2,0,36);
-      background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 100%);
-      font-family:'helvetica neue';
+      background: rgb(61,61,61);
+      background: linear-gradient(100deg, rgba(61,61,61,1) 10%, rgba(0,0,0,1) 100%);
+      font-family: Arial, Helvetica, sans-serif;
       text-align: center;
       font-size: 50px;
       box-sizing: border-box;
@@ -32,16 +40,27 @@ html {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "tempo start";
 }
 
 .content {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 2fr 4fr 1fr;
+  grid-template-areas:
+    "keys widget degrees";
+}
+
+.footer {
+  display: grid;
+  /*grid-area: footer;*/
 }
 
 .keys {
+  /*grid-area: keys;*/
   display: grid;
+  grid-area: keys;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(8, 1fr);
@@ -49,12 +68,15 @@ html {
 
 .chords {
   display: grid;
+  grid-area: degrees;
   grid-gap: 20px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(7, 1fr)
 }
 
 .widget {
+  /*grid-area: widget;*/
+  font-family: "Times New Roman", Times, serif;
   display: grid;
   background-color: rgb(255,255,255,0.7);
   height: 750px;
@@ -65,6 +87,7 @@ html {
   align-self: center;
   align-content: center;
   box-shadow: 3px 3px 8px;
+  grid-area: widget;
 }
 
 .widget h2 {
@@ -72,15 +95,18 @@ html {
 }
 
 .widget h1 {
+  deisplay: grid;
   margin: 10px;
 }
 
 .tempo {
+  grid-area: tempo;
   display: grid;
   grid-gap: 20px;
   padding: 10px;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  color: rgb(255,255,255,0.7);
 }
 
 
@@ -103,6 +129,49 @@ input[type=range]::-ms-track {
   background: transparent; 
   border-color: transparent;
   color: transparent;
+}
+
+.option-btn {
+  background-color: green;
+  border: 4px solid black;
+  color: black;
+  /*background: rgba(0, 0, 0, 0.7);*/
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 8px;
+}
+
+.start {
+  display: grid;
+  grid-area: start;
+}
+
+.start-btn {
+  background-color: green;
+  border: 4px solid black;
+  color: black;
+  /*background: rgba(0, 0, 0, 0.7);*/
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 8px;
+}
+
+.display-text {
+  margin: 10px;
+}
+
+.btn-off {
+  background-color: red;
 }
 
 /*STYLING FOR SLIDER TRACK*/
@@ -192,50 +261,31 @@ input[type=range]::-ms-thumb {
 
 
 
-.option-btn {
-  background-color: green;
-  border: 4px solid black;
-  color: black;
-  /*background: rgba(0, 0, 0, 0.7);*/
-  padding: 5px;
-  width: 100%;
-  height: 100%;
-  font-size: 1em;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 3px 3px 8px;
-}
-
-.start-btn {
-  background-color: green;
-  border: 4px solid black;
-  color: black;
-  /*background: rgba(0, 0, 0, 0.7);*/
-  padding: 5px;
-  width: 100%;
-  height: 100%;
-  font-size: 1em;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 3px 3px 8px;
-}
-
-.display-text {
-  margin: 10px;
-}
-
-.btn-off {
-  background-color: red;
-}
 
 button:active {
   width: 95%;
   height: 95%;
 }
 
-/*.tempo {
-  grid-column: span 3;
-}*/
+
+
+
+@media (max-width: 1000px) {
+  .header {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "tempo"
+      "start";
+  }
+
+  .content {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "keys"
+      "widget"
+      "degrees";
+  }
+}
+
 
