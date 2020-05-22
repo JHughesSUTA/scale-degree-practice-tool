@@ -78,6 +78,7 @@ html {
 
 .sharp-keys {
   display: grid;
+  display-area: sharp-keys;
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: 1fr;
   grid-gap: 20px;
@@ -86,6 +87,7 @@ html {
 
 .flat-keys {
   display: grid;
+  display-area: flat-keys;
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: 1fr;
   grid-gap: 20px;
@@ -332,17 +334,28 @@ button:active {
 
   .keys {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:
-      "sharps sharps sharps sharps"
-      "sharps sharps sharps sharps"
-      "flats flats flats flats"
-      "flats flats flats flats";
+      "sharp-keys"
+      "flat-keys";
+  }
+
+  .sharp-keys {
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .flat-keys {
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   .chords {
     display: grid;
+    grid-gap: 5px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
