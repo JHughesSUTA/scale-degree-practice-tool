@@ -11,7 +11,7 @@ html {
       background: linear-gradient(100deg, rgba(61,61,61,1) 10%, rgba(0,0,0,1) 100%);
       font-family: Arial, Helvetica, sans-serif;
       text-align: center;
-      font-size: 50px;
+      font-size: 25px;
       box-sizing: border-box;
     }
 
@@ -63,8 +63,34 @@ html {
   grid-area: keys;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(8, 1fr);
+  /*grid-template-rows: repeat(8, 1fr);*/
+  grid-template-rows: 1fr;
+/*  grid-template-areas:
+      "sharps flats"
+      "sharps flats"
+      "sharps flats"
+      "sharps flats"
+      "sharps flats"
+      "sharps flats"
+      "sharps flats"
+      "sharps flats";*/
 }
+
+.sharp-keys {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+
+.flat-keys {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
 
 .chords {
   display: grid;
@@ -95,7 +121,7 @@ html {
 }
 
 .widget h1 {
-  deisplay: grid;
+  display: grid;
   margin: 10px;
 }
 
@@ -107,6 +133,12 @@ html {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   color: rgb(255,255,255,0.7);
+  grid-template-areas:
+    "label slider tempo-display";
+}
+
+.tempo p {
+  margin: 0px;
 }
 
 
@@ -273,11 +305,22 @@ button:active {
 @media (max-width: 1000px) {
   .header {
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
       "tempo"
       "start";
   }
+
+  .tempo {
+    /*grid-area: tempo;*/
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    display: grid;
+    grid-template-areas:
+      "label"
+      "slider" 
+      "tempo-display";
+}
 
   .content {
     grid-template-columns: auto;
@@ -285,6 +328,23 @@ button:active {
       "keys"
       "widget"
       "degrees";
+  }
+
+  .keys {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "sharps sharps sharps sharps"
+      "sharps sharps sharps sharps"
+      "flats flats flats flats"
+      "flats flats flats flats";
+  }
+
+  .chords {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }
 
