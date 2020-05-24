@@ -23,8 +23,8 @@ html {
 
 .container {
   display: grid;
-  grid-gap: 20px;
-  border: 5px solid rgba(0, 0, 0, 0.3);
+  grid-gap: 100px;
+  /*border: 5px solid rgba(0, 0, 0, 0.3);*/
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 8fr 2fr;
   margin: 75px;
@@ -65,15 +65,6 @@ html {
   grid-template-columns: 1fr 1fr;
   /*grid-template-rows: repeat(8, 1fr);*/
   grid-template-rows: 1fr;
-/*  grid-template-areas:
-      "sharps flats"
-      "sharps flats"
-      "sharps flats"
-      "sharps flats"
-      "sharps flats"
-      "sharps flats"
-      "sharps flats"
-      "sharps flats";*/
 }
 
 .sharp-keys {
@@ -106,25 +97,42 @@ html {
   /*grid-area: widget;*/
   font-family: "Times New Roman", Times, serif;
   display: grid;
+  grid-template-rows: 42% 58%;
   background-color: rgb(255,255,255,0.7);
+  width: 750px;
   height: 750px;
-  width: 90%;
   border: 5px solid black;
   border-radius: 50%;
   justify-self: center;
-  align-self: center;
   align-content: center;
   box-shadow: 3px 3px 8px;
   grid-area: widget;
 }
 
-.widget h2 {
+/*.widget h2 {
   margin: 10px;
 }
 
 .widget h1 {
   display: grid;
   margin: 10px;
+}*/
+
+.widget p {
+  display: grid;
+  margin: 10px;
+}
+
+#display-key {
+  font-size: 2.5em;
+  /*display: grid;*/
+  align-content: end;
+}
+
+#display-degree {
+  font-size: 4em;
+  align-content: start;
+  font-weight: 600;
 }
 
 .tempo {
@@ -292,10 +300,6 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
 }
 
-
-
-
-
 button:active {
   width: 95%;
   height: 95%;
@@ -303,15 +307,20 @@ button:active {
 
 
 
-
 @media (max-width: 1000px) {
+  .container {
+    grid-gap: 80px;
+  }
+
   .header {
     grid-template-columns: auto;
     grid-template-rows: 1fr auto;
+    grid-gap: 40px;
     grid-template-areas:
       "tempo"
       "start";
   }
+
 
   .tempo {
     /*grid-area: tempo;*/
@@ -326,6 +335,7 @@ button:active {
 
   .content {
     grid-template-columns: auto;
+    grid-gap: 60px;
     grid-template-areas:
       "keys"
       "widget"
@@ -359,6 +369,8 @@ button:active {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
+
+
 }
 
 

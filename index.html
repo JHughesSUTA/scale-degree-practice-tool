@@ -10,8 +10,8 @@
     <div class="header">
       <div class="tempo">
         <label for='tempo'>Tempo:</label>
-        <input name='tempo' type='range' min='30' max='102' value='60' step='8'>
-        <p id='tempo-value'>60</p>
+        <input name='tempo' type='range' autocomplete="off" min='20' max='80' value='30' step='2'>
+        <p id='tempo-value'>30</p>
       </div>
       <div class="start">
         <button class="start-btn" onclick="updateButton();toggleButton(this);toggleStart()">START</button>
@@ -69,12 +69,12 @@
             <button class="option-btn btn-off" onclick="toggleButton(this);addRemoveKey()">C#</button>
           </div>
           <div class=" key "></div>
-          
+
         </div>
       </div>
       <div class="widget">
-        <h2 class="display-key">C</h2>
-        <h1 class="display-degree">I</h1>
+        <p id="display-key">C</p>
+        <p id="display-degree">I</p>
       </div>
       <div class="chords">
         <div class="chord i">
@@ -112,14 +112,14 @@
 <script>
   var t;
   var running = false; 
-  var showDegree = document.querySelector('.display-degree');
-  var showKey = document.querySelector('.display-key');
+  var showDegree = document.querySelector('#display-degree');
+  var showKey = document.querySelector('#display-key');
   var showTempo = document.querySelector('#tempo-value');
   var degrees = ['I','IV','V'];
   var keys = ['C','G','D','F','Bb'];
   var tempo = document.querySelector('[name="tempo"]');
   tempo.addEventListener('change', tempoChange);
-  var tempoMs = 1000;
+  var tempoMs = 2000;
 
   function toggleButton(button) {
     button.classList.toggle("btn-off");
@@ -182,7 +182,6 @@
     showDegree.textContent = degree;
     var key = keys[Math.floor(Math.random() * keys.length)];
     showKey.textContent = key;
-    console.log(key);
   }
 
   function tempoChange() {
