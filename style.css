@@ -1,14 +1,18 @@
-/*:root {
+:root {
   --yellow: #ffc600;
   --black: #272727;
   --red: #E76F51;
   --green: #2A9D8F;
-}*/
+  --container-gray: rgb(240,240,240);
+  --blue: #0091ea;
+  --green: #66B032;
+}
 
 
 html {
-      background: rgb(61,61,61);
-      background: linear-gradient(100deg, rgba(61,61,61,1) 10%, rgba(0,0,0,1) 100%);
+      /*background: rgb(61,61,61);
+      background: linear-gradient(100deg, rgba(61,61,61,1) 10%, rgba(0,0,0,1) 100%);*/
+      background-color: rgb(200,200,200);
       font-family: Arial, Helvetica, sans-serif;
       text-align: center;
       font-size: 25px;
@@ -23,18 +27,16 @@ html {
 
 .container {
   display: grid;
-  grid-gap: 100px;
+  grid-gap: 50px;
+  max-width:1200px;
+  margin: 0 auto;
+  margin-top: 50px;
   /*border: 5px solid rgba(0, 0, 0, 0.3);*/
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 8fr 2fr;
-  margin: 75px;
 }
 
 
-.item {
-  background-color: yellow;
-  /*he;ight: 75px*/
-}
 
 .header {
   display: grid;
@@ -42,11 +44,16 @@ html {
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     "tempo start";
+  background-color: var(--container-gray);
+  padding: 20px;
+  border: 1px solid rgba(0,0.0.0.75);
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
 }
 
 .content {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 60px;
   grid-template-columns: 2fr 4fr 1fr;
   grid-template-areas:
     "keys widget degrees";
@@ -65,6 +72,11 @@ html {
   grid-template-columns: 1fr 1fr;
   /*grid-template-rows: repeat(8, 1fr);*/
   grid-template-rows: 1fr;
+  background-color: var(--container-gray);
+  padding: 20px;
+  border: 1px solid rgba(0,0.0.0.75);
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
 }
 
 .sharp-keys {
@@ -90,7 +102,12 @@ html {
   grid-area: degrees;
   grid-gap: 20px;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(7, 1fr)
+  grid-template-rows: repeat(7, 1fr);
+  background-color: var(--container-gray);
+  padding: 20px;
+  border: 1px solid rgba(0,0.0.0.75);
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
 }
 
 .widget {
@@ -98,14 +115,17 @@ html {
   font-family: "Times New Roman", Times, serif;
   display: grid;
   grid-template-rows: 42% 58%;
-  background-color: rgb(255,255,255,0.7);
-  width: 750px;
-  height: 750px;
-  border: 5px solid black;
+  /*background-color: rgb(255,255,255,0.7);*/
+  background-color: white;
+  width: 600px;
+  height: 600px;
+  border: 1px solid #ddd;
   border-radius: 50%;
   justify-self: center;
   align-content: center;
-  box-shadow: 3px 3px 8px;
+  align-self: center;
+  /*box-shadow: 3px 3px 8px;*/
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
   grid-area: widget;
 }
 
@@ -142,13 +162,59 @@ html {
   padding: 10px;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  color: rgb(255,255,255,0.7);
+  /*color: rgb(255,255,255,0.7);*/
   grid-template-areas:
     "label slider tempo-display";
 }
 
 .tempo p {
   margin: 0px;
+}
+
+
+.option-btn {
+  background-color: var(--blue);
+  border: none;
+  color: white;
+  /*background: rgba(0, 0, 0, 0.7);*/
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+}
+
+.start {
+  display: grid;
+  grid-area: start;
+}
+
+.start-btn {
+  background-color: var(--green);
+  border: none;
+  color: black;
+  letter-spacing: 1px;
+  /*background: rgba(0, 0, 0, 0.7);*/
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+}
+
+.display-text {
+  margin: 10px;
+}
+
+.btn-off {
+  background-color: white;
+  color: var(--blue);
 }
 
 
@@ -171,49 +237,6 @@ input[type=range]::-ms-track {
   background: transparent; 
   border-color: transparent;
   color: transparent;
-}
-
-.option-btn {
-  background-color: green;
-  border: 4px solid black;
-  color: black;
-  /*background: rgba(0, 0, 0, 0.7);*/
-  padding: 5px;
-  width: 100%;
-  height: 100%;
-  font-size: 1em;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 3px 3px 8px;
-}
-
-.start {
-  display: grid;
-  grid-area: start;
-}
-
-.start-btn {
-  background-color: green;
-  border: 4px solid black;
-  color: black;
-  /*background: rgba(0, 0, 0, 0.7);*/
-  padding: 5px;
-  width: 100%;
-  height: 100%;
-  font-size: 1em;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 3px 3px 8px;
-}
-
-.display-text {
-  margin: 10px;
-}
-
-.btn-off {
-  background-color: red;
 }
 
 /*STYLING FOR SLIDER TRACK*/
