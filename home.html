@@ -14,7 +14,7 @@
         <p id='tempo-value'>30 bpm</p>
       </div>
       <div class="start">
-        <button class="start-btn" onclick="updateButton();toggleButton(this);toggleStart()">START</button>
+        <button class="start-btn" onclick="updateButton();toggleStartButton(this);toggleStart()">START</button>
       </div>
     </div>
     <div class="content">
@@ -123,6 +123,11 @@
 
   function toggleButton(button) {
     button.classList.toggle("btn-off");
+    var target = event.target.innerHTML;
+  }
+
+  function toggleStartButton(button) {
+    button.classList.toggle("start-btn-off");
     var target = event.target.innerHTML;
   }
 

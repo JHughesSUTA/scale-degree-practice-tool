@@ -195,7 +195,7 @@ html {
 .start-btn {
   background-color: var(--green);
   border: none;
-  color: black;
+  color: white;
   letter-spacing: 1px;
   /*background: rgba(0, 0, 0, 0.7);*/
   padding: 5px;
@@ -215,6 +215,11 @@ html {
 .btn-off {
   background-color: white;
   color: var(--blue);
+}
+
+.start-btn-off {
+  background-color: red;
+  color: white);
 }
 
 
@@ -245,7 +250,7 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
+  background: var(--blue);
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
